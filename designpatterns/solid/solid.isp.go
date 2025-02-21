@@ -1,4 +1,4 @@
-package designpatterns
+package solid
 
 type Document struct {
 }
