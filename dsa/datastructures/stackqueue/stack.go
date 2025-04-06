@@ -3,20 +3,20 @@ package stackqueue
 import "fmt"
 
 // Stack represents a stack of strings.
-type Stack []string
+type Stack[T comparable] []T
 
 // IsEmpty checks if the stack is empty.
-func (s *Stack) IsEmpty() bool {
+func (s *Stack[T]) IsEmpty() bool {
 	return len(*s) == 0
 }
 
 // Push adds a new value onto the stack.
-func (s *Stack) Push(str string) {
+func (s *Stack[T]) Push(str T) {
 	*s = append(*s, str) // Append the new value to the end of the stack
 }
 
 // Pop removes and returns the top element of the stack. Returns false if the stack is empty.
-func (s *Stack) Pop() bool {
+func (s *Stack[T]) Pop() bool {
 	if s.IsEmpty() {
 		return false
 	}
@@ -26,26 +26,27 @@ func (s *Stack) Pop() bool {
 }
 
 // Peek returns the top element of the stack without removing it. Returns false if the stack is empty.
-func (s *Stack) Peek() (string, bool) {
+func (s *Stack[T]) Peek() (T, bool) {
+	var zeroValue T
 	if s.IsEmpty() {
-		return "", false
+		return zeroValue, false
 	}
 	index := len(*s) - 1 // Get the index of the top element
 	return (*s)[index], true
 }
 
 // Size returns the number of elements in the stack.
-func (s *Stack) Size() int {
+func (s *Stack[T]) Size() int {
 	return len(*s)
 }
 
 // Clear removes all elements from the stack.
-func (s *Stack) Clear() {
+func (s *Stack[T]) Clear() {
 	*s = nil
 }
 
 func main() {
-	stack := new(Stack) // Create a stack variable of type Stack
+	stack := new(Stack[string]) // Create a stack variable of type Stack
 
 	stack.Push("this")
 	stack.Push("is")

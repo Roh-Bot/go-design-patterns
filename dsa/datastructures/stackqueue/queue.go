@@ -3,20 +3,20 @@ package stackqueue
 import "fmt"
 
 // Queue represents a queue of strings.
-type Queue []string
+type Queue[T comparable] []T
 
 // IsEmpty checks if the queue is empty.
-func (q *Queue) IsEmpty() bool {
+func (q *Queue[T]) IsEmpty() bool {
 	return len(*q) == 0
 }
 
 // Enqueue adds a new element to the end of the queue.
-func (q *Queue) Enqueue(str string) {
+func (q *Queue[T]) Enqueue(str T) {
 	*q = append(*q, str) // Append the new element to the end of the queue
 }
 
 // Dequeue removes and returns the element from the front of the queue. Returns false if the queue is empty.
-func (q *Queue) Dequeue() bool {
+func (q *Queue[T]) Dequeue() bool {
 	if q.IsEmpty() {
 		return false
 	}
@@ -25,25 +25,26 @@ func (q *Queue) Dequeue() bool {
 }
 
 // Peek returns the front element of the queue without removing it. Returns false if the queue is empty.
-func (q *Queue) Peek() (string, bool) {
+func (q *Queue[T]) Peek() (T, bool) {
+	var zeroValue T
 	if q.IsEmpty() {
-		return "", false
+		return zeroValue, false
 	}
 	return (*q)[0], true
 }
 
 // Size returns the number of elements in the queue.
-func (q *Queue) Size() int {
+func (q *Queue[T]) Size() int {
 	return len(*q)
 }
 
 // Clear removes all elements from the queue.
-func (q *Queue) Clear() {
+func (q *Queue[T]) Clear() {
 	*q = nil
 }
 
 func Queue1() {
-	queue := new(Queue) // Create a queue variable of type Queue
+	queue := new(Queue[string]) // Create a queue variable of type Queue
 
 	queue.Enqueue("first")
 	queue.Enqueue("second")

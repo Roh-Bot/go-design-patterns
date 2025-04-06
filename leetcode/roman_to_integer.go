@@ -1,9 +1,8 @@
 package leetcode
 
-import "log"
-
-func RomanToIntger(s string) int {
-	r := map[string]int{
+// RomanToInteger MCMXCIV
+func RomanToInteger(s string) int {
+	r1 := map[string]int{
 		"I": 1,
 		"V": 5,
 		"X": 10,
@@ -12,9 +11,24 @@ func RomanToIntger(s string) int {
 		"D": 500,
 		"M": 1000,
 	}
-	for i := 0; i < len(s)-1; i++ {
-		//a := s[i]
-		log.Println(r)
+	r2 := map[string]int{
+		"IV": 4,
+		"IX": 9,
+		"XL": 40,
+		"XC": 90,
+		"CD": 400,
+		"CM": 900,
 	}
-	return 0
+	result := 0
+	for i := 0; i < len(s); i++ {
+		if i < len(s)-1 {
+			if num, ok := r2[string(s[i])+string(s[i+1])]; ok {
+				result += num
+				i++
+				continue
+			}
+		}
+		result += r1[string(s[i])]
+	}
+	return result
 }
