@@ -1,13 +1,12 @@
 package leetcode
 
 func IndexFirstOccurrenceInString(haystack, needle string) int {
-
-	for i := 0; i < len(haystack); i++ {
-		if len(needle)+i > len(haystack) {
-			return -1
-		} else if haystack[i:len(needle)+i] == needle {
+	window := len(needle)
+	for i := 0; window <= len(haystack); i++ {
+		if haystack[i:window] == needle {
 			return i
 		}
+		window++
 	}
 	return -1
 }

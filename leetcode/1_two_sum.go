@@ -10,7 +10,7 @@ func twoSum(nums []int, target int) []int {
 			return []int{numsIdx, i}
 		}
 
-		nums[v] = i
+		numsMap[v] = i
 	}
 	return nil
 }
