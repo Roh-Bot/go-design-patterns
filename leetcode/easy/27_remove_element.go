@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 func RemoveElement(nums []int, val int) int {
 	count := 0

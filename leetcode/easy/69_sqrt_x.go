@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 func mySqrt(x int) int {
 	low := 0

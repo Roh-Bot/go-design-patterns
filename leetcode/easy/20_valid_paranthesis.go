@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 type Stack[T comparable] []T
 

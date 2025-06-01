@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 // RomanToInteger MCMXCIV
 func RomanToInteger(s string) int {

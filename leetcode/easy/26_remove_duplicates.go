@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 func RemoveDuplicatesFromSortedArray(nums []int) int {
 	nextInsertionIndex := 1

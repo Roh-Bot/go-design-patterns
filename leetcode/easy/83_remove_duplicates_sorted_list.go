@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 func deleteDuplicates(head *ListNode) *ListNode {
 	current := head

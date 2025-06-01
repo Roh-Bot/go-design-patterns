@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 // nums=[2,7,3,11], target=9
 func twoSum(nums []int, target int) []int {

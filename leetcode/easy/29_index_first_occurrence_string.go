@@ -1,4 +1,4 @@
-package leetcode
+package easy
 
 func IndexFirstOccurrenceInString(haystack, needle string) int {
 	window := len(needle)
