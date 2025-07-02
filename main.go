@@ -1,9 +1,33 @@
 package main
 
-import (
-	"github.com/RohBot/GOLANG/GoPhase3/leetcode/easy"
-)
+import "fmt"
 
 func main() {
-	easy.NextGreaterElement([]int{4, 1, 2}, []int{1, 3, 4, 2})
+	arr := []string{"duh", "ill"}
+	for _, str := range arr {
+		var sum int32
+		for _, v := range str {
+			sum += v
+		}
+		fmt.Println(sum)
+
+	}
+}
+
+type node struct {
+	left  *node
+	data  int
+	right *node
+}
+
+type BinaryTree struct {
+	root *node
+}
+
+func NewBinaryTree() *BinaryTree {
+	return &BinaryTree{}
+}
+
+func (b *BinaryTree) PreOrder() {
+	fmt.Println(b.root)
 }

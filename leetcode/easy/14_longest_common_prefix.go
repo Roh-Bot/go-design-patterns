@@ -5,7 +5,7 @@ package easy
 func longestCommonPrefix(str []string) string {
 	prefix := str[0]
 	for i := 1; i < len(str); i++ {
-		for !(len(str[i]) >= len(prefix) && str[i][0:len(prefix)] == prefix) {
+		for len(prefix) >= len(str[i]) && str[i][0:len(prefix)] != prefix {
 			prefix = prefix[:len(prefix)-1]
 		}
 	}

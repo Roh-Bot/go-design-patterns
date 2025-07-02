@@ -1,4 +1,4 @@
-package easy
+package medium
 
 // [4, 5, 6, 7, 0, 1, 2,3]
 func RotatedSortedArray(arr []int, target int) int {
