@@ -1,8 +1,7 @@
 package binarytrees
 
 type Node struct {
-	left  *Node
-	data  int
-	right *Node
+	Left  *Node
+	Data  int
+	Right *Node
 }
-

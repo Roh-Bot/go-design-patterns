@@ -12,9 +12,9 @@ func NewBinarySearchTree() *BinarySearchTree {
 	return new(BinarySearchTree)
 }
 
-// Insert inserts a new node with the given data into the binary tree.
+// Insert inserts a new node with the given Data into the binary tree.
 func (b *BinarySearchTree) Insert(data int) *BinarySearchTree {
-	newNode := &Node{data: data}
+	newNode := &Node{Data: data}
 	if b.root == nil {
 		b.root = newNode
 	} else {
@@ -25,17 +25,17 @@ func (b *BinarySearchTree) Insert(data int) *BinarySearchTree {
 
 // insert recursively finds the correct position to insert the new node.
 func (n *Node) insert(data int) {
-	if data <= n.data {
-		if n.left == nil {
-			n.left = &Node{data: data}
+	if data <= n.Data {
+		if n.Left == nil {
+			n.Left = &Node{Data: data}
 		} else {
-			n.left.insert(data)
+			n.Left.insert(data)
 		}
 	} else {
-		if n.right == nil {
-			n.right = &Node{data: data}
+		if n.Right == nil {
+			n.Right = &Node{Data: data}
 		} else {
-			n.right.insert(data)
+			n.Right.insert(data)
 		}
 	}
 }
@@ -50,9 +50,9 @@ func inOrder(node *Node) {
 	if node == nil {
 		return
 	}
-	inOrder(node.left)
-	fmt.Print(node.data, " ")
-	inOrder(node.right)
+	inOrder(node.Left)
+	fmt.Print(node.Data, " ")
+	inOrder(node.Right)
 }
 
 // PreOrder traversal (Root -> Left -> Right)
@@ -65,9 +65,9 @@ func preOrder(node *Node) {
 	if node == nil {
 		return
 	}
-	fmt.Print(node.data, " ")
-	preOrder(node.left)
-	preOrder(node.right)
+	fmt.Print(node.Data, " ")
+	preOrder(node.Left)
+	preOrder(node.Right)
 }
 
 // PostOrder traversal (Left -> Right -> Root)
@@ -80,9 +80,9 @@ func postOrder(node *Node) {
 	if node == nil {
 		return
 	}
-	postOrder(node.left)
-	postOrder(node.right)
-	fmt.Print(node.data, " ")
+	postOrder(node.Left)
+	postOrder(node.Right)
+	fmt.Print(node.Data, " ")
 }
 
 // Print prints the binary tree in a structured way.
@@ -92,11 +92,11 @@ func (b *BinarySearchTree) Print(node *Node, space int, child rune) {
 	}
 
 	// Print the current node with indentation
-	fmt.Printf("%s%c:%d\n", fmt.Sprintf("%*s", space, ""), child, node.data)
+	fmt.Printf("%s%c:%d\n", fmt.Sprintf("%*s", space, ""), child, node.Data)
 
-	// Recursively print left and right subtrees with additional indentation
-	b.Print(node.left, space+4, 'L')
-	b.Print(node.right, space+4, 'R')
+	// Recursively print Left and Right subtrees with additional indentation
+	b.Print(node.Left, space+4, 'L')
+	b.Print(node.Right, space+4, 'R')
 }
 
 func BST() {

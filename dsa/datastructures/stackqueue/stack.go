@@ -11,18 +11,20 @@ func (s *Stack[T]) IsEmpty() bool {
 }
 
 // Push adds a new value onto the stack.
-func (s *Stack[T]) Push(str T) {
-	*s = append(*s, str) // Append the new value to the end of the stack
+func (s *Stack[T]) Push(data T) {
+	*s = append(*s, data) // Append the new value to the end of the stack
 }
 
 // Pop removes and returns the top element of the stack. Returns false if the stack is empty.
-func (s *Stack[T]) Pop() bool {
+func (s *Stack[T]) Pop() (T, bool) {
+	var zeroVal T
 	if s.IsEmpty() {
-		return false
+		return zeroVal, false
 	}
 	index := len(*s) - 1 // Get the index of the top element
+	val := (*s)[index]   // Get the index of the top element
 	*s = (*s)[:index]    // Remove it from the stack by slicing
-	return true
+	return val, true
 }
 
 // Peek returns the top element of the stack without removing it. Returns false if the stack is empty.

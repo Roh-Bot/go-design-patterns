@@ -2,7 +2,7 @@ package stackqueue
 
 import "fmt"
 
-// Queue represents a queue of strings.
+// Queue represents a generic queue.
 type Queue[T comparable] []T
 
 // IsEmpty checks if the queue is empty.
@@ -11,17 +11,19 @@ func (q *Queue[T]) IsEmpty() bool {
 }
 
 // Enqueue adds a new element to the end of the queue.
-func (q *Queue[T]) Enqueue(str T) {
-	*q = append(*q, str) // Append the new element to the end of the queue
+func (q *Queue[T]) Enqueue(data T) {
+	*q = append(*q, data) // Append the new element to the end of the queue
 }
 
 // Dequeue removes and returns the element from the front of the queue. Returns false if the queue is empty.
-func (q *Queue[T]) Dequeue() bool {
+func (q *Queue[T]) Dequeue() (T, bool) {
+	var zeroVal T
 	if q.IsEmpty() {
-		return false
+		return zeroVal, false
 	}
+	e := (*q)[0]
 	*q = (*q)[1:] // Remove the front element from the queue by slicing
-	return true
+	return e, true
 }
 
 // Peek returns the front element of the queue without removing it. Returns false if the queue is empty.
@@ -33,8 +35,8 @@ func (q *Queue[T]) Peek() (T, bool) {
 	return (*q)[0], true
 }
 
-// Size returns the number of elements in the queue.
-func (q *Queue[T]) Size() int {
+// Length returns the number of elements in the queue.
+func (q *Queue[T]) Length() int {
 	return len(*q)
 }
 
@@ -57,7 +59,7 @@ func Queue1() {
 
 	e, _ := queue.Peek()
 	fmt.Println("Peek at front element: ", e)
-	fmt.Println("Queue size:", queue.Size())
+	fmt.Println("Queue size:", queue.Length())
 
 	queue.Clear()
 	fmt.Println("Queue cleared. Is empty?", queue.IsEmpty())
