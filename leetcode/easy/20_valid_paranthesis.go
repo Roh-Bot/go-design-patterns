@@ -33,7 +33,7 @@ func isValid(s string) bool {
 	for _, v := range s {
 		if _, ok := bracks[v]; ok {
 			stack = append(stack, v)
-		} else if len(stack) != 0 && bracks[stack[len(stack)-1]] != v {
+		} else if len(stack) != 0 && bracks[stack[len(stack)-1]] == v {
 			stack.Pop()
 		} else {
 			return false
