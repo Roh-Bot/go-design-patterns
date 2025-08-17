@@ -56,7 +56,7 @@ func (b *BinaryTree) InOrderIterative() []int {
 
 	// Loop to go left until it reaches the leaf node
 	// Once leaf node is found check if the stack is not empty
-	// for edge cases and pop the stack to append the value in the result
+	// for loop termination and pop the stack to append the value in the result
 	// After the pop simply assign the node to the right node of the
 	// corresponding node
 	for {
