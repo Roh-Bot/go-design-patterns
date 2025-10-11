@@ -1,5 +1,10 @@
 package neetcode150
 
+//Prefix: nums = [1,1,2,6]
+//Prefix: nums = [24,12,4,1]
+
+// Input: nums = [1,2,3,4]
+// Output: [24,12,8,6]
 // productExceptSelf returns an array where each element at index i
 // is the product of all elements in nums except nums[i].
 //

@@ -25,7 +25,7 @@ func containsDuplicate(nums []int) bool {
 	// Create a map to store numbers we've already encountered.
 	// We only care about the existence of a number, not any value,
 	// so we use `struct{}` as the value type (because it takes 0 bytes).
-	m := make(map[int]struct{})
+	m := make(map[int]struct{}, len(nums))
 
 	// Loop through each number in the input slice
 	for _, v := range nums {
