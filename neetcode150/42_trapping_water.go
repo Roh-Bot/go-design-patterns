@@ -54,14 +54,14 @@ func trapTwoPointersO1(height []int) int {
 	totalTraps := 0
 
 	for left < right {
-		if leftMax < rightMax {
+		if leftMax <= rightMax {
 			left++
-			leftMax = max(leftMax, height[left])
 			totalTraps += max(0, leftMax-height[left])
+			leftMax = max(leftMax, height[left])
 		} else {
 			right--
-			rightMax = max(rightMax, height[right])
 			totalTraps += max(0, rightMax-height[right])
+			rightMax = max(rightMax, height[right])
 		}
 	}
 	return totalTraps
