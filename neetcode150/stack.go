@@ -1,4 +1,4 @@
-package stackqueue
+package neetcode150
 
 // Stack represents a stack of strings.
 type Stack[T comparable] []T

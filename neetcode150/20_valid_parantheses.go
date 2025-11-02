@@ -23,7 +23,7 @@ func isValid(s string) bool {
 		'{': '}',
 	}
 
-	stack := new(Stack) // our custom stack
+	stack := new(Stack[byte]) // our custom stack
 
 	for i := 0; i < len(s); i++ {
 		char := s[i]
@@ -46,30 +46,4 @@ func isValid(s string) bool {
 
 	// Step 4: Valid only if all openers were matched
 	return stack.IsEmpty()
-}
-
-// Stack Helper Implementation
-type Stack []byte
-
-// Pop removes the top element
-func (s *Stack) Pop() {
-	if s.IsEmpty() {
-		return
-	}
-	*s = (*s)[:len(*s)-1]
-}
-
-// Push adds a new element to the top
-func (s *Stack) Push(data byte) {
-	*s = append(*s, data)
-}
-
-// Peek returns the top element without removing it
-func (s *Stack) Peek() byte {
-	return (*s)[len(*s)-1]
-}
-
-// IsEmpty checks if the stack has no elements
-func (s *Stack) IsEmpty() bool {
-	return len(*s) == 0
 }
