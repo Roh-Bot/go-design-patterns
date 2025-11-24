@@ -1,7 +1,7 @@
 package neetcode150
 
 // Stack represents a stack of strings.
-type Stack[T comparable] []T
+type Stack[T any] []T
 
 // IsEmpty checks if the stack is empty.
 func (s *Stack[T]) IsEmpty() bool {
