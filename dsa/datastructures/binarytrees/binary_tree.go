@@ -2,6 +2,7 @@ package binarytrees
 
 import (
 	"fmt"
+
 	"github.com/RohBot/GOLANG/GoPhase3/dsa/datastructures/stackqueue"
 )
 
@@ -33,7 +34,7 @@ func (b *BinaryTree) PreOrderIterative() []int {
 	var result []int
 
 	for !stack.IsEmpty() {
-		v, _ := stack.Pop()
+		v := stack.Pop()
 		result = append(result, v.Data) // Visit root
 
 		// Push right child first so left is processed first
@@ -68,7 +69,7 @@ func (b *BinaryTree) InOrderIterative() []int {
 		if stack.IsEmpty() {
 			break
 		}
-		val, _ := stack.Pop()
+		val := stack.Pop()
 		result = append(result, val.Data) // Visit node
 		node = val.Right                  // Then go right
 	}
@@ -94,7 +95,7 @@ func (b *BinaryTree) PostOrderIterative() []int {
 		if stack.IsEmpty() {
 			break
 		}
-		val, _ := stack.Pop()
+		val := stack.Pop()
 		node = val.Left // After right, go left
 	}
 	return result
